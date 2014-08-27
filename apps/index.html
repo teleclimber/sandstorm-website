@@ -3,7 +3,19 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      // See explanation in root page.
+      var viewportTag = document.createElement("meta");
+      viewportTag.name = "viewport";
+
+      function updateViewport() {
+        viewportTag.content = "width=" + (screen.width < 690 ? 480 : screen.width);
+      }
+      updateViewport();
+
+      document.head.appendChild(viewportTag);
+      window.onorientationchange = updateViewport;
+    </script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" media="screen" href="../style.css">
 
@@ -151,6 +163,22 @@
           a Sandstorm app, it won't disappear.
         <p><a href="https://blog.sandstorm.io/news/2014-07-24-tinytinyrss-plus-security-discussion.html">Read more on the Sandstorm blog »</a>
         <p><img src="tinytinyrss.png">
+      </div>
+
+      <div class="app">
+        <button onclick="install('e33f5c7dc0fb016071b38212dacf4c14?url=http://sandstorm.io/apps/groovebasin.spk')">Install »</button>
+        <h3>Groove Basin</h3>
+        <div class="app-details">
+          Originally by: <a href="http://andrewkelley.me/">Andrew Kelly</a><br>
+          Ported by: <a href="https://github.com/dwrensha">David Renshaw</a><br>
+          License: MIT<br>
+          Code: <a href="https://github.com/dwrensha/groovebasin/tree/sandstorm-app">On Github</a>
+        </div>
+        <p>A port of <a href="http://groovebasin.com/">Groove Basin</a>, a music library and player.
+          Groove Basin not only plays music, but also allows multiple clients to collaboratively
+          control a single stream.
+        <p><a href="https://blog.sandstorm.io/news/2014-08-26-groove-basin.html">Read more on the Sandstorm blog »</a>
+        <p><img src="groovebasin.png">
       </div>
 
       <div class="app">
